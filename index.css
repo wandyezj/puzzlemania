@@ -1,0 +1,33 @@
+body {
+    background-color: black;
+}
+
+.site-title {
+    text-align: center;
+    font-size: xx-large;
+    color: white;
+}
+
+
+.todays-puzzle {
+    text-align: center;
+    font-size: large;
+    color: white;
+}
+
+.puzzle-title {
+    text-align: center;
+    font-size: x-large;
+    color: cornflowerblue;
+}
+
+.puzzle-text {
+    text-align: center;
+    color: white;
+}
+
+.answer-input {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
