@@ -16,7 +16,9 @@ function checkAnswer(input_id, output_id) {
 
 // Set up the puzzle based on the current puzzle
 function setupPuzzle() {
+    // Load up latest puzzle
 
+    // Set the puzzle information
 }
 
 function getLatestPuzzleName() {

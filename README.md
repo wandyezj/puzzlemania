@@ -17,8 +17,8 @@ This will be the first puzzle type displayed by the website due to it's relative
 
 The puzzle consists of:
 * hint
-** a clue to the answer and the number of letters for each rhyming word.
+    * a clue to the answer and the number of letters for each rhyming word.
 * answer
-** a pair of rhyming words.
+    * a pair of rhyming words.
 
 The site provides an input box for the user to check their answer and says correct when they are correct.
