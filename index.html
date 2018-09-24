@@ -4,6 +4,7 @@
 <head>
     <title>Puzzle Mania</title>
     <meta charset="utf-8">
+    <script src=".\data\current.puzzle.js"></script>
     <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -19,10 +20,13 @@
     <div class="puzzle;  puzzle-text">
             <p>obese feline</p>
             <p>3 3</p>
-            <input id="answer-input" class="answer-input" type="text" maxlength="7" onkeyup="checkAnswer('answer-input')">
+            <input id="answer-input" class="answer-input" type="text" maxlength="7" onkeyup="checkAnswer('answer-input', 'answer-feedback');">
             <!-- Tell user they are right-->
+            <p id="answer-output" class="answer-feedback-correct" style="visibility: hidden;" >Correct!</p>
     </div>
 
+    <!-- Test the input -->
+    <input type="button" onclick="getLatestPuzzleName();" style="background-color:black; border:none; ">
 </body>
 
 
