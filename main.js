@@ -25,11 +25,13 @@ function getLatestPuzzleName() {
     return current_puzzle.name;
 }
 
-const worker = new Worker("worker.js");
+
 
 function loadPuzzle(puzzle_name) {
     console.log(puzzle_name);
 
+    const worker = new Worker("worker.js");
+    
     worker.onmessage = function(e) {
         console.log("Message received from worker");
         console.log(e.data);
