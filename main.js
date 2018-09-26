@@ -23,14 +23,7 @@ function checkAnswer() {
 }
 
 
-
-function getLatestPuzzleName() {
-    return current_puzzle.name;
-}
-
-
 function loadPuzzle(puzzle_name) {
-    console.log(puzzle_name);
 
     // Construct the path to the puzzle
     const file_name = puzzle_name + ".puzzle.json";
@@ -38,15 +31,14 @@ function loadPuzzle(puzzle_name) {
 
     const file_path = data_path + file_name; 
 
+    // set up the worker to retrieve the puzzle object 
+    // json file to object fetcher
     const worker = new Worker("worker.js");
 
     worker.onmessage = function(e) {
-        console.log("Message received from worker");
-        console.log(e.data);
         setupPuzzle(e.data);
     };
 
-    //worker.postMessage("Message to worker: Hello!");
     worker.postMessage(file_path);
 }
 
@@ -60,7 +52,7 @@ function setupPuzzle(puzzle) {
     const answer = puzzle.answer;
     const total_letters = answer.length;
     
-    // use coercion to figure out how many letters per word 
+    // figure out how many letters per word.
     const tuple = answer.split(" ");
     const letters = tuple[0].length + " " + tuple[1].length;
 
@@ -75,8 +67,11 @@ function setupPuzzle(puzzle) {
     g_elements.letters.innerText = letters;
     g_elements.input.maxLength = total_letters;
     g_elements.answer = answer;
+}
 
-
+function getLatestPuzzleName() {
+    // this is loaded from a separate javascript file
+    return current_puzzle.name;
 }
 
 // When all the HTML controls load, set up the puzzle.
