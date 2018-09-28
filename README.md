@@ -9,6 +9,20 @@ The current.puzzle.json file points to which puzzle to display from the puzzle r
 
 When the site loads it loads up the current puzzle and displays it.
 
+### Specific Details
+
+#### web.config 
+
+The web.config allows json files to be dynamically loaded.
+
+#### CORS
+
+#### Technical References
+
+[Web Crypto Hash](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest)
+
+[DOM Focus](https://www.w3schools.com/jsref/met_html_focus.asp)
+
 ## Puzzles
 
 ### Wordy Gurdy
@@ -22,3 +36,8 @@ The puzzle consists of:
     * a pair of rhyming words.
 
 The site provides an input box for the user to check their answer and says correct when they are correct.
+
+
+## Resources
+
+[OneLook Dictionary Search](https://onelook.com/)

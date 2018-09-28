@@ -1,6 +1,5 @@
 const g_elements = {};
 
-
 function checkAnswer() {
     const input = g_elements.input;
     const output = g_elements.output;
@@ -21,27 +20,6 @@ function checkAnswer() {
 
     }
 }
-
-
-function loadPuzzle(puzzle_name) {
-
-    // Construct the path to the puzzle
-    const file_name = puzzle_name + ".puzzle.json";
-    const data_path = "./data/puzzles/";
-
-    const file_path = data_path + file_name; 
-
-    // set up the worker to retrieve the puzzle object 
-    // json file to object fetcher
-    const worker = new Worker("worker.js");
-
-    worker.onmessage = function(e) {
-        setupPuzzle(e.data);
-    };
-
-    worker.postMessage(file_path);
-}
-
 
 // Set up the puzzle based on the current puzzle
 function setupPuzzle(puzzle) {
@@ -67,6 +45,25 @@ function setupPuzzle(puzzle) {
     g_elements.letters.innerText = letters;
     g_elements.input.maxLength = total_letters;
     g_elements.answer = answer;
+}
+
+function loadPuzzle(puzzle_name) {
+
+    // Construct the path to the puzzle
+    const file_name = puzzle_name + ".puzzle.json";
+    const data_path = "./data/puzzles/";
+
+    const file_path = data_path + file_name; 
+
+    // set up the worker to retrieve the puzzle object 
+    // json file to object fetcher
+    const worker = new Worker("load-json-file-worker.js");
+
+    worker.onmessage = function(e) {
+        setupPuzzle(e.data);
+    };
+
+    worker.postMessage(file_path);
 }
 
 function getLatestPuzzleName() {
